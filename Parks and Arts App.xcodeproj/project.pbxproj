@@ -13,6 +13,10 @@
 		88D74CA620A94CEC00C7A568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D74CA520A94CEC00C7A568 /* Assets.xcassets */; };
 		88D74CA920A94CEC00C7A568 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D74CA720A94CEC00C7A568 /* LaunchScreen.storyboard */; };
 		88D74CB420A94CED00C7A568 /* Parks_and_Arts_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D74CB320A94CED00C7A568 /* Parks_and_Arts_AppTests.swift */; };
+		88D74CC020A94EE400C7A568 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88D74CBF20A94EE400C7A568 /* CoreLocation.framework */; };
+		88D74CC220A94F4E00C7A568 /* PublicParks.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D74CC120A94F4E00C7A568 /* PublicParks.json */; };
+		88D74CC420A94F8600C7A568 /* PublicArts.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D74CC320A94F8600C7A568 /* PublicArts.json */; };
+		88D74CC620A94F9700C7A568 /* Parks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D74CC520A94F9700C7A568 /* Parks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		88D74CAF20A94CED00C7A568 /* Parks and Arts AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Parks and Arts AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D74CB320A94CED00C7A568 /* Parks_and_Arts_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parks_and_Arts_AppTests.swift; sourceTree = "<group>"; };
 		88D74CB520A94CED00C7A568 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88D74CBF20A94EE400C7A568 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		88D74CC120A94F4E00C7A568 /* PublicParks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PublicParks.json; sourceTree = "<group>"; };
+		88D74CC320A94F8600C7A568 /* PublicArts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PublicArts.json; sourceTree = "<group>"; };
+		88D74CC520A94F9700C7A568 /* Parks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D74CC020A94EE400C7A568 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +71,7 @@
 				88D74C9D20A94CEC00C7A568 /* Parks and Arts App */,
 				88D74CB220A94CED00C7A568 /* Parks and Arts AppTests */,
 				88D74C9C20A94CEC00C7A568 /* Products */,
+				88D74CBE20A94EE400C7A568 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,10 +89,13 @@
 			children = (
 				88D74C9E20A94CEC00C7A568 /* AppDelegate.swift */,
 				88D74CA020A94CEC00C7A568 /* ViewController.swift */,
+				88D74CC520A94F9700C7A568 /* Parks.swift */,
 				88D74CA220A94CEC00C7A568 /* Main.storyboard */,
 				88D74CA520A94CEC00C7A568 /* Assets.xcassets */,
 				88D74CA720A94CEC00C7A568 /* LaunchScreen.storyboard */,
 				88D74CAA20A94CEC00C7A568 /* Info.plist */,
+				88D74CC120A94F4E00C7A568 /* PublicParks.json */,
+				88D74CC320A94F8600C7A568 /* PublicArts.json */,
 			);
 			path = "Parks and Arts App";
 			sourceTree = "<group>";
@@ -94,6 +107,14 @@
 				88D74CB520A94CED00C7A568 /* Info.plist */,
 			);
 			path = "Parks and Arts AppTests";
+			sourceTree = "<group>";
+		};
+		88D74CBE20A94EE400C7A568 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88D74CBF20A94EE400C7A568 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +200,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88D74CC420A94F8600C7A568 /* PublicArts.json in Resources */,
+				88D74CC220A94F4E00C7A568 /* PublicParks.json in Resources */,
 				88D74CA920A94CEC00C7A568 /* LaunchScreen.storyboard in Resources */,
 				88D74CA620A94CEC00C7A568 /* Assets.xcassets in Resources */,
 				88D74CA420A94CEC00C7A568 /* Main.storyboard in Resources */,
@@ -201,6 +224,7 @@
 			files = (
 				88D74CA120A94CEC00C7A568 /* ViewController.swift in Sources */,
 				88D74C9F20A94CEC00C7A568 /* AppDelegate.swift in Sources */,
+				88D74CC620A94F9700C7A568 /* Parks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
