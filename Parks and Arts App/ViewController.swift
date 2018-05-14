@@ -2,9 +2,27 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var parks: [Parks] = []
+    
+    func loadInitialData() {
+        guard let fileName = Bundle.main.path(forResource: "PublicParks", ofType: "json")
+            else{return}
+        let optionalData = try? Data(contentsOf: URL(fileURLWithPath: fileName))
+        
+        guard
+            let data = optionalData,
+            let json = try? JSONSerialization.jsonObject(with: data),
+            let dictionary = json as? [String: Any],
+            let works = dictionary["data"] as? [[Any]]
+            else{return}
+        
+        let validWorks = works.flatMap {Parks(json: $0)}
+        parks.append(contentsOf: validWorks)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +39,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         centerMapOnLocation(location: initialLocation)
         
-        let park = Parks(title: "Billy Goat Hill", parkType: "Neighboorhood park or playground", coordinate: CLLocationCoordinate2D(latitude:37.74140787 , longitude: -122.43319872))
-        mapView.addAnnotation(park)
+       // let park = Parks(title: "Billy Goat Hill", parkType: "Neighboorhood park or playground", coordinate: CLLocationCoordinate2D(latitude:37.74140787 , longitude: -122.43319872))
+        //mapView.addAnnotation(park)
+        
+        loadInitialData()
+        mapView.addAnnotations(parks)
         
     }
 
@@ -51,5 +72,11 @@ extension ViewController: MKMapViewDelegate {
             view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         return view
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! Parks
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
     }
 }
