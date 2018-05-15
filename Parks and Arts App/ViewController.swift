@@ -6,6 +6,34 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet var categoryButtons: [UIButton]!
+    @IBAction func handleSelection(_ sender: UIButton) {
+        categoryButtons.forEach{(button) in UIView.animate(withDuration: 0.3, animations: { button.isHidden = !button.isHidden
+            self.view.layoutIfNeeded()})
+        }
+    }
+    enum Categories: String {
+        case all = "All"
+        case parks = "Parks"
+        case artwork = "Artwork"
+    }
+    
+    @IBAction func categoryPressed(_ sender: UIButton) {
+        guard let title = sender.currentTitle, let category = Categories(rawValue: title) else{
+            return
+        }
+        
+        switch category{
+            
+        case .all:
+            print("All")
+        case .parks:
+            print("Parks")
+        case .artwork:
+            print("Artwork")
+        }
+    }
+    
     var parks: [Parks] = []
     
     func loadInitialData() {
