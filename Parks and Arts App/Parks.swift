@@ -36,6 +36,24 @@ class Parks : NSObject, MKAnnotation {
         return parkType
     }
     
+    var imageName: String?{
+        return "parkIcon"
+    }
+    
+    var markerTintColor: UIColor{
+        switch parkType{
+        case "Neighborhood Park or Playground":
+            return .green
+        case "Mini Park":
+            return .blue
+        case "Community Garden":
+            return .yellow
+        default:
+            return .black
+        }
+        
+    }
+    
     func mapItem() -> MKMapItem{
         let addressDict = [CNPostalAddressStreetKey: subtitle!]
         let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict )

@@ -18,7 +18,7 @@
 		88D74CC420A94F8600C7A568 /* PublicArts.json in Resources */ = {isa = PBXBuildFile; fileRef = 88D74CC320A94F8600C7A568 /* PublicArts.json */; };
 		88D74CC620A94F9700C7A568 /* Parks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D74CC520A94F9700C7A568 /* Parks.swift */; };
 		88D74CC820AA70A900C7A568 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D74CC720AA70A900C7A568 /* Artwork.swift */; };
-		88D74CCA20AA799700C7A568 /* MarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D74CC920AA799700C7A568 /* MarkerView.swift */; };
+		88D74CCC20AACA8200C7A568 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D74CCB20AACA8200C7A568 /* AnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 		88D74CC320A94F8600C7A568 /* PublicArts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PublicArts.json; sourceTree = "<group>"; };
 		88D74CC520A94F9700C7A568 /* Parks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parks.swift; sourceTree = "<group>"; };
 		88D74CC720AA70A900C7A568 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
-		88D74CC920AA799700C7A568 /* MarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerView.swift; sourceTree = "<group>"; };
+		88D74CCB20AACA8200C7A568 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 				88D74CA020A94CEC00C7A568 /* ViewController.swift */,
 				88D74CC520A94F9700C7A568 /* Parks.swift */,
 				88D74CC720AA70A900C7A568 /* Artwork.swift */,
-				88D74CC920AA799700C7A568 /* MarkerView.swift */,
+				88D74CCB20AACA8200C7A568 /* AnnotationView.swift */,
 				88D74CA220A94CEC00C7A568 /* Main.storyboard */,
 				88D74CA520A94CEC00C7A568 /* Assets.xcassets */,
 				88D74CA720A94CEC00C7A568 /* LaunchScreen.storyboard */,
@@ -230,8 +230,8 @@
 			files = (
 				88D74CA120A94CEC00C7A568 /* ViewController.swift in Sources */,
 				88D74C9F20A94CEC00C7A568 /* AppDelegate.swift in Sources */,
+				88D74CCC20AACA8200C7A568 /* AnnotationView.swift in Sources */,
 				88D74CC820AA70A900C7A568 /* Artwork.swift in Sources */,
-				88D74CCA20AA799700C7A568 /* MarkerView.swift in Sources */,
 				88D74CC620A94F9700C7A568 /* Parks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

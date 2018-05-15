@@ -7,6 +7,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet var categoryButtons: [UIButton]!
+    
     @IBAction func handleSelection(_ sender: UIButton) {
         categoryButtons.forEach{(button) in UIView.animate(withDuration: 0.3, animations: { button.isHidden = !button.isHidden
             self.view.layoutIfNeeded()})
@@ -58,20 +59,18 @@ class ViewController: UIViewController {
         mapView.delegate = self
         
         let initialLocation = CLLocation(latitude: 37.74140787, longitude: -122.43319872)
-        
-        let regionRadius: CLLocationDistance = 5000
+        let regionRadius: CLLocationDistance = 3000
         func centerMapOnLocation(location: CLLocation){
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
             mapView.setRegion(coordinateRegion, animated: true)
         }
-        
         centerMapOnLocation(location: initialLocation)
         
-       // let park = Parks(title: "Billy Goat Hill", parkType: "Neighboorhood park or playground", coordinate: CLLocationCoordinate2D(latitude:37.74140787 , longitude: -122.43319872))
-        //mapView.addAnnotation(park)
+        mapView.register(AnnotationMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         loadInitialData()
         mapView.addAnnotations(parks)
+        
         
     }
 
@@ -82,26 +81,7 @@ class ViewController: UIViewController {
 
 }
 extension ViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        guard let annotation = annotation as? Parks
-            else{return nil}
-        
-        let identifier = "marker"
-        var view: MKMarkerAnnotationView
-        
-        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKMarkerAnnotationView {
-            dequeuedView.annotation = annotation
-            view = dequeuedView
-        }else{
-            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        }
-        return view
-    }
-    
+
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! Parks
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
