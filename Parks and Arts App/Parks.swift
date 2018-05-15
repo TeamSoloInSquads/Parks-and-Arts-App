@@ -5,12 +5,14 @@ import Contacts
 class Parks : NSObject, MKAnnotation {
     let title: String?
     let parkType: String
+    let geo: [Any]
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, parkType: String, coordinate: CLLocationCoordinate2D){
+    init(title: String, parkType: String, geo: [Any], coordinate: CLLocationCoordinate2D){
         self.title = title
         self.parkType = parkType
         self.coordinate = coordinate
+        self.geo = geo
         
         super.init()
     }
@@ -19,8 +21,10 @@ class Parks : NSObject, MKAnnotation {
         self.title = json[8] as? String ?? "No Title"
         self.parkType = json[9] as! String
         
-        if let latitude = Double(json[18] as! String),
-            let longitude = Double(json[18] as! String){
+        self.geo = json[18] as! [Any]
+        
+        if let latitude = Double(geo[1] as? String ?? ""),
+            let longitude = Double(geo[2] as? String ?? ""){
             self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }else{
             self.coordinate = CLLocationCoordinate2D()
