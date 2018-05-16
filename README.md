@@ -10,14 +10,14 @@ get directions there using the built in Maps app from apple.
 
 Must Have Features:
 
-*Display Parks and Art pieces
-*Connect to Map App to display directions
-*Add custom annotations
-*Keeps track of users current location
+1. Display Parks and Art pieces
+1. Connect to Map App to display directions
+1. Add custom annotations
+1. Keeps track of users current location
 
 Nice to Have Features:
 
-*Drop down bar to distinguish between which annotations to show
-*Tracking of user
-*Display pictures of parks and art pieces
+1. Drop down bar to distinguish between which annotations to show
+1. Tracking of user
+1. Display pictures of parks and art pieces
 
